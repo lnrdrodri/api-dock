@@ -14,6 +14,7 @@ accountsRouter.post("/", function(req, res){
       tipoConta
     ]
   
+    
     const query = "INSERT INTO contas(idPessoa, saldo, limiteSaqueDiario, tipoConta, dataCriacao) VALUES (?, ?, ?, ?, NOW())"
     sql.query(query, fields, function(err, results, fields){
       if(err) throw err
