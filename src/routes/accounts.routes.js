@@ -1,5 +1,5 @@
 const express = require("express")
-const sql = require("../database/db")
+const sql = require("../database/db");
 
 const accountsRouter = express.Router()
 
@@ -13,7 +13,6 @@ accountsRouter.post("/", function(req, res){
       limiteSaqueDiario,
       tipoConta
     ]
-  
     
     const query = "INSERT INTO contas(idPessoa, saldo, limiteSaqueDiario, tipoConta, dataCriacao) VALUES (?, ?, ?, ?, NOW())"
     sql.query(query, fields, function(err, results, fields){
@@ -21,10 +20,10 @@ accountsRouter.post("/", function(req, res){
 
       const id = results.affectedRows ? results.insertId : 0
       
-      return res.json(id)
+      return res.status(201).json({success: true, id})
     })
   } catch (err) {
-    return response.status(400).json({ error: err.message })
+    return res.status(400).json({ success: false, error: err.message })
   }
 });
 
