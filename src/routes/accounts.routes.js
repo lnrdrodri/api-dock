@@ -1,29 +1,45 @@
 const express = require("express")
-const sql = require("../database/db");
+const repositoryAccount = require("../repositories/repository-accounts");
 
 const accountsRouter = express.Router()
 
-accountsRouter.post("/", function(req, res){
-  try{
-    const { idPessoa, saldo, limiteSaqueDiario, tipoConta} = req.body
+accountsRouter.post("/", async function(req, res){
+  const dbResponse = await repositoryAccount.insertAccount(req.body)
 
-    const fields = [
-      idPessoa,
-      saldo,
-      limiteSaqueDiario,
-      tipoConta
-    ]
-    
-    const query = "INSERT INTO contas(idPessoa, saldo, limiteSaqueDiario, tipoConta, dataCriacao) VALUES (?, ?, ?, ?, NOW())"
-    sql.query(query, fields, function(err, results, fields){
-      if(err) throw err
+  if (dbResponse.success) {
+    return res.status(201).json(dbResponse)
+  } else {
+    return res.status(400).json(dbResponse)
+  }
+});
 
-      const id = results.affectedRows ? results.insertId : 0
-      
-      return res.status(201).json({success: true, id})
-    })
-  } catch (err) {
-    return res.status(400).json({ success: false, error: err.message })
+accountsRouter.post("/:id/deposity", async function(req, res){
+  const dbResponse = await repositoryAccount.deposityInAccount(req.params.id, req.body)
+
+  if (dbResponse.success) {
+    return res.status(201).json(dbResponse)
+  } else {
+    return res.status(400).json(dbResponse)
+  }
+});
+
+accountsRouter.get("/:id/balance", async function(req, res){
+  const dbResponse = await repositoryAccount.balanceAccount(req.params.id)
+
+  if (dbResponse.success) {
+    return res.status(200).json(dbResponse)
+  } else {
+    return res.status(400).json(dbResponse)
+  }
+});
+
+accountsRouter.post("/:id/withdraw", async function(req, res){
+  const dbResponse = await repositoryAccount.withdrawInAccount(req.params.id, req.body)
+
+  if (dbResponse.success) {
+    return res.status(201).json(dbResponse)
+  } else {
+    return res.status(400).json(dbResponse)
   }
 });
 
