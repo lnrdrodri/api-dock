@@ -1,7 +1,7 @@
 # Dock - Desafio API Rest
 
-- [Manual de Execução](#manual-de-execuo)
-- [Documentação](#documentao)
+- [Manual de Execução](#manual-de-execução)
+- [Documentação](#documentação)
 
 ## Manual de Execução
 
@@ -21,7 +21,7 @@
   ```bash
     yarn start
   ```
-
+5. Pronto! Seu servidor já está rodando. 🚀
 ## Documentação
 
 ## Endpoints
