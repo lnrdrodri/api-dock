@@ -47,20 +47,20 @@ accountsRouter.patch("/:id/block", async function(req, res){
   const dbResponse = await repositoryAccount.blockAccount(req.params.id)
 
   if (dbResponse.success) {
-    return res.status(201).json(dbResponse)
+    return res.status(200).json(dbResponse)
   } else {
     return res.status(400).json(dbResponse)
   }
 })
 
 accountsRouter.get("/:id/transactions", async function(req, res){
-  const {dtInicial, dtFinal} = req.body
-  const dbResponse = await repositoryAccount.allTransactions(req.params.id, dtInicial, dtFinal)
+  const dbResponse = await repositoryAccount.allTransactions(req.params.id, req.body)
 
   if (dbResponse.success) {
-    return res.status(201).json(dbResponse)
+    return res.status(200).json(dbResponse)
   } else {
     return res.status(400).json(dbResponse)
   }
 })
+
 module.exports = accountsRouter

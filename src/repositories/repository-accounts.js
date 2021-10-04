@@ -119,7 +119,7 @@ const blockAccount = async (idConta) => {
   }
 }
 
-const allTransactions = async (idConta, dtInicial = 0, dtFinal = 0) => {
+const allTransactions = async (idConta, {dtInicial = 0, dtFinal = 0}) => {
   try {
     const exist = await existAccount(idConta)
     if (!exist) throw new Error("Não foi possível encontrar as transações, essa conta não existe.")
