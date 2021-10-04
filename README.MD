@@ -21,7 +21,7 @@
   ```bash
     yarn start
   ```
-
+5. Pronto! Seu servidor já está rodando. 🚀
 ## Documentação
 
 ## Endpoints
