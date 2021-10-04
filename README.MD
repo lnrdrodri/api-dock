@@ -1,4 +1,4 @@
-# Dock -- Desafio API Rest
+# Dock - Desafio API Rest
 
 ## Documentação
 
