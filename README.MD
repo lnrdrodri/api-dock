@@ -1,5 +1,27 @@
 # Dock -- Desafio API Rest
 
+## [Manual de Execução](#manual-de-execucao)
+## [Documentação](#documentacao)
+
+## Manual de Execução
+
+1. Clone o repositório para a sua máquina
+  ```bash
+    git clone https://github.com/lnrdrodri/api-dock.git
+  ```
+
+2. Após clonar o repositório, instale as dependências com seu gerenciador de pacotes preferido.
+  ```bash
+    yarn
+  ```
+
+3. Lembre-se de criar o arquivo **.env** na raíz do projeto, utilize o **.env.example** como base para criar suas variáveis de ambiente.
+
+4. Com o arquivo **.env** criado, e as dependências instaladas, agora é só iniciar o servidor digitando:
+  ```bash
+    yarn start
+  ```
+
 ## Documentação
 
 ## Endpoints
