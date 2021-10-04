@@ -1,7 +1,7 @@
 # Dock - Desafio API Rest
 
-- [Manual de Execução](#manual-de-execuo)
-- [Documentação](#documentao)
+- [Manual de Execução](#manual-de-execução)
+- [Documentação](#documentação)
 
 ## Manual de Execução
 
